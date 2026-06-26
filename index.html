@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Innovotech Solutions Pvt. Ltd.</title>
+<meta name="description" content="Solar Powered Waste Plastic Pyrolysis — Eco-sustainable innovation from Ludhiana, Punjab. Incubated at IIT Ropar TBIF.">
+<style>
+  /* ===== CSS VARIABLES ===== */
+  :root {
+    --green-dark:   #1B5E20;
+    --green-mid:    #2E7D32;
+    --green-main:   #388E3C;
+    --green-light:  #4CAF50;
+    --green-pale:   #C8E6C9;
+    --green-bg:     #F1F8F1;
+    --solar-dark:   #E65100;
+    --solar-mid:    #F57F17;
+    --solar-main:   #FFB300;
+    --solar-light:  #FFD54F;
+    --solar-pale:   #FFF8E1;
+    --white:        #FFFFFF;
+    --gray-50:      #FAFAFA;
+    --gray-100:     #F5F5F5;
+    --gray-200:     #EEEEEE;
+    --gray-300:     #E0E0E0;
+    --gray-600:     #757575;
+    --gray-800:     #424242;
+    --gray-900:     #212121;
+    --text-main:    #1A2E1A;
+    --text-body:    #3D5A3D;
+    --shadow-sm:    0 2px 8px rgba(46,125,50,0.10);
+    --shadow-md:    0 6px 24px rgba(46,125,50,0.14);
+    --shadow-lg:    0 16px 48px rgba(46,125,50,0.16);
+    --radius:       12px;
+    --radius-lg:    20px;
+    --transition:   0.35s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--white);
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--green-main); text-decoration: none; transition: color var(--transition); }
+  a:hover { color: var(--green-dark); }
+  ul { list-style: none; }
+  ::selection { background: var(--green-pale); color: var(--green-dark); }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--gray-100); }
+  ::-webkit-scrollbar-thumb { background: var(--green-light); border-radius: 3px; }
+
+  /* ===== NAVBAR ===== */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--green-pale);
+    box-shadow: 0 2px 16px rgba(46,125,50,0.08);
+    transition: all var(--transition);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 70px;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+    font-weight: 700; font-size: 1.15rem; color: var(--green-dark);
+    letter-spacing: -0.3px;
+  }
+  .nav-logo {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--green-light), var(--solar-main));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(76,175,80,0.3);
+  }
+  .nav-brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .nav-brand-text span:first-child { font-size: 0.98rem; }
+  .nav-brand-text span:last-child { font-size: 0.7rem; font-weight: 400; color: var(--gray-600); letter-spacing: 0.5px; }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 4px;
+  }
+  .nav-links > li { position: relative; }
+  .nav-links > li > a, .nav-links > li > button {
+    padding: 8px 14px; border-radius: 8px;
+    font-size: 0.88rem; font-weight: 500; color: var(--text-body);
+    background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; gap: 4px;
+    transition: all var(--transition);
+    white-space: nowrap;
+  }
+  .nav-links > li > a:hover, .nav-links > li > button:hover {
+    background: var(--green-bg); color: var(--green-dark);
+  }
+  .nav-links > li > a.active { color: var(--green-dark); background: var(--green-pale); }
+
+  /* Dropdown */
+  .dropdown { position: relative; }
+  .dropdown-menu {
+    position: absolute; top: calc(100% + 8px); left: 0;
+    background: var(--white); border: 1px solid var(--green-pale);
+    border-radius: var(--radius); box-shadow: var(--shadow-md);
+    min-width: 160px; padding: 6px;
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: all var(--transition);
+  }
+  .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu {
+    opacity: 1; visibility: visible; transform: translateY(0);
+  }
+  .dropdown-menu a {
+    display: block; padding: 9px 14px; font-size: 0.85rem;
+    color: var(--text-body); border-radius: 8px;
+    transition: all var(--transition);
+  }
+  .dropdown-menu a:hover { background: var(--green-bg); color: var(--green-dark); }
+  .chevron { font-size: 0.7rem; transition: transform var(--transition); }
+  .dropdown:hover .chevron { transform: rotate(180deg); }
+
+  /* Mobile toggle */
+  .nav-toggle {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 8px;
+  }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--green-dark); border-radius: 2px; transition: all 0.3s; }
+
+  /* ===== HERO ===== */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--white) 0%, var(--green-bg) 50%, var(--solar-pale) 100%);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding-top: 70px;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.04;
+    background-image: radial-gradient(circle, var(--green-main) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  .hero-sun {
+    position: absolute; top: -120px; right: -120px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,213,79,0.35) 0%, rgba(255,179,0,0.12) 50%, transparent 70%);
+    animation: pulse-sun 4s ease-in-out infinite;
+  }
+  .hero-leaf {
+    position: absolute; bottom: -60px; left: -60px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(76,175,80,0.12) 0%, transparent 70%);
+  }
+  @keyframes pulse-sun { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.06);opacity:0.85} }
+
+  .hero-content {
+    max-width: 1200px; margin: 0 auto; padding: 80px 24px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .hero-text {}
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--solar-pale); border: 1px solid var(--solar-light);
+    color: var(--solar-dark); padding: 6px 14px; border-radius: 99px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;
+    margin-bottom: 24px;
+  }
+  .hero-badge::before { content: "☀️"; }
+  .hero-h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800;
+    line-height: 1.15; color: var(--text-main);
+    margin-bottom: 20px; letter-spacing: -0.5px;
+  }
+  .hero-h1 em { font-style: normal; color: var(--green-main); }
+  .hero-h1 span { color: var(--solar-dark); }
+  .hero-sub {
+    font-size: 1.05rem; color: var(--text-body);
+    margin-bottom: 36px; max-width: 480px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--green-main), var(--green-light));
+    color: var(--white); padding: 14px 28px; border-radius: 10px;
+    font-weight: 600; font-size: 0.95rem;
+    box-shadow: 0 4px 16px rgba(76,175,80,0.35);
+    transition: all var(--transition); border: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(76,175,80,0.45);
+    color: var(--white);
+  }
+  .btn-outline {
+    background: transparent; color: var(--green-main);
+    border: 2px solid var(--green-main); padding: 12px 26px;
+    border-radius: 10px; font-weight: 600; font-size: 0.95rem;
+    transition: all var(--transition); cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover {
+    background: var(--green-main); color: var(--white);
+    transform: translateY(-2px);
+  }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 48px;
+  }
+  .stat-card {
+    background: var(--white); border: 1px solid var(--green-pale);
+    border-radius: var(--radius); padding: 16px;
+    box-shadow: var(--shadow-sm); text-align: center;
+  }
+  .stat-num { font-size: 1.5rem; font-weight: 800; color: var(--green-dark); }
+  .stat-label { font-size: 0.72rem; color: var(--gray-600); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Hero visual */
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+  }
+  .hero-diagram {
+    width: 100%; max-width: 420px;
+    background: var(--white); border: 1px solid var(--green-pale);
+    border-radius: var(--radius-lg); padding: 32px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+  .hero-diagram-title {
+    font-size: 0.8rem; font-weight: 600; color: var(--gray-600);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px;
+    text-align: center;
+  }
+  .pyrolysis-flow {
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .flow-step {
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 16px; border-radius: 10px;
+    background: var(--gray-50); border: 1px solid var(--gray-200);
+    transition: all var(--transition); cursor: default;
+    position: relative;
+  }
+  .flow-step:hover { background: var(--green-bg); border-color: var(--green-pale); transform: translateX(4px); }
+  .flow-step-icon { font-size: 1.5rem; flex-shrink: 0; width: 36px; text-align: center; }
+  .flow-step-text { flex: 1; }
+  .flow-step-text strong { display: block; font-size: 0.88rem; color: var(--text-main); }
+  .flow-step-text span { font-size: 0.75rem; color: var(--gray-600); }
+  .flow-arrow {
+    text-align: center; color: var(--green-light); font-size: 1.1rem;
+    padding: 4px 0; line-height: 1;
+  }
+
+  /* ===== SECTION BASE ===== */
+  section { padding: 96px 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--green-main);
+    margin-bottom: 12px;
+  }
+  .section-tag::before { content: ""; display: block; width: 20px; height: 2px; background: var(--green-main); }
+  .section-title {
+    font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 800;
+    color: var(--text-main); line-height: 1.2; letter-spacing: -0.4px;
+  }
+  .section-title em { font-style: normal; color: var(--green-main); }
+  .section-sub {
+    font-size: 1rem; color: var(--text-body); margin-top: 14px;
+    max-width: 600px;
+  }
+  .section-header { margin-bottom: 56px; }
+
+  /* ===== BACKGROUND SECTION ===== */
+  #background { background: var(--white); }
+  .bg-intro-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    align-items: start; margin-bottom: 64px;
+  }
+  .bg-intro-text {}
+  .bg-intro-title {
+    font-size: 1.8rem; font-weight: 800; color: var(--text-main);
+    line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.3px;
+  }
+  .bg-intro-title span { color: var(--solar-dark); }
+  .highlight-box {
+    background: linear-gradient(135deg, var(--solar-pale), var(--green-bg));
+    border: 1px solid var(--solar-light); border-radius: var(--radius);
+    padding: 20px 24px; margin: 24px 0;
+    border-left: 4px solid var(--solar-main);
+  }
+  .highlight-box p { font-size: 0.92rem; color: var(--text-body); }
+  .point-list { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }
+  .point-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 14px 16px; background: var(--gray-50);
+    border: 1px solid var(--gray-200); border-radius: 10px;
+    transition: all var(--transition);
+  }
+  .point-item:hover { background: var(--green-bg); border-color: var(--green-pale); }
+  .point-icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+  .point-item p { font-size: 0.88rem; color: var(--text-body); }
+
+  .waste-visual {
+    background: linear-gradient(135deg, var(--green-bg), var(--solar-pale));
+    border: 1px solid var(--green-pale); border-radius: var(--radius-lg);
+    padding: 32px; display: flex; flex-direction: column; gap: 20px;
+  }
+  .waste-stat-big {
+    text-align: center; padding: 24px;
+    background: var(--white); border-radius: var(--radius);
+    border: 1px solid var(--green-pale); box-shadow: var(--shadow-sm);
+  }
+  .waste-stat-big .num { font-size: 3rem; font-weight: 900; color: var(--solar-dark); line-height: 1; }
+  .waste-stat-big .unit { font-size: 1rem; font-weight: 600; color: var(--text-body); }
+  .waste-stat-big .desc { font-size: 0.82rem; color: var(--gray-600); margin-top: 4px; }
+  .waste-stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .waste-mini-stat {
+    background: var(--white); border-radius: var(--radius); padding: 16px;
+    border: 1px solid var(--green-pale); text-align: center;
+  }
+  .waste-mini-stat .mini-num { font-size: 1.6rem; font-weight: 800; }
+  .waste-mini-stat .mini-label { font-size: 0.75rem; color: var(--gray-600); margin-top: 4px; }
+  .waste-mini-stat.red .mini-num { color: var(--solar-dark); }
+  .waste-mini-stat.green .mini-num { color: var(--green-dark); }
+
+  /* ===== PRESENT SECTION ===== */
+  #present { background: var(--green-bg); }
+  .mission-banner {
+    background: linear-gradient(135deg, var(--green-dark), var(--green-main));
+    color: var(--white); padding: 40px 48px; border-radius: var(--radius-lg);
+    margin-bottom: 56px; position: relative; overflow: hidden;
+  }
+  .mission-banner::before {
+    content: "♻️"; position: absolute; right: 40px; top: 50%;
+    transform: translateY(-50%); font-size: 5rem; opacity: 0.15;
+  }
+  .mission-banner h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 10px; }
+  .mission-banner p { font-size: 1rem; opacity: 0.9; max-width: 700px; }
+
+  .present-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .present-card {
+    background: var(--white); border: 1px solid var(--green-pale);
+    border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+  }
+  .present-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .card-icon { font-size: 2.2rem; margin-bottom: 16px; }
+  .present-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-bottom: 12px; }
+  .present-card p { font-size: 0.9rem; color: var(--text-body); line-height: 1.75; }
+  .present-card.featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--white), var(--solar-pale));
+    border-color: var(--solar-light);
+  }
+  .solar-advantages { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .adv-item {
+    background: var(--white); border: 1px solid var(--green-pale);
+    border-radius: 8px; padding: 12px 14px;
+    font-size: 0.83rem; color: var(--text-body);
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .adv-item::before { content: "►"; color: var(--green-main); flex-shrink: 0; font-size: 0.7rem; margin-top: 3px; }
+
+  .projection-box {
+    background: linear-gradient(135deg, var(--green-dark), var(--green-main));
+    color: var(--white); border-radius: var(--radius-lg); padding: 32px;
+    grid-column: 1 / -1;
+  }
+  .projection-box h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; opacity: 0.9; }
+  .proj-numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
+  .proj-num-item { text-align: center; }
+  .proj-num-item .big { font-size: 1.8rem; font-weight: 900; color: var(--solar-light); }
+  .proj-num-item .label { font-size: 0.78rem; opacity: 0.85; margin-top: 4px; }
+
+  /* ===== PROCESS SECTION ===== */
+  #process { background: var(--white); }
+  .process-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    margin-bottom: 48px;
+  }
+  .process-step {
+    background: var(--white); border: 1px solid var(--gray-200);
+    border-radius: var(--radius); padding: 24px 20px;
+    text-align: center; position: relative; overflow: hidden;
+    transition: all var(--transition);
+    cursor: pointer;
+  }
+  .process-step::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--green-main), var(--green-light));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform var(--transition);
+  }
+  .process-step:hover::before { transform: scaleX(1); }
+  .process-step:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: var(--green-pale); }
+  .step-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--green-pale); color: var(--green-dark);
+    font-weight: 800; font-size: 0.9rem;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 14px;
+  }
+  .step-icon { font-size: 2rem; margin-bottom: 10px; }
+  .process-step h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+  .process-step p { font-size: 0.8rem; color: var(--gray-600); line-height: 1.6; }
+
+  .process-benefits {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px;
+  }
+  .benefit-group {
+    background: var(--gray-50); border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg); padding: 28px;
+  }
+  .benefit-group h3 {
+    font-size: 1rem; font-weight: 700; color: var(--text-main);
+    margin-bottom: 18px; padding-bottom: 12px;
+    border-bottom: 2px solid var(--green-pale);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .benefit-list { display: flex; flex-direction: column; gap: 10px; }
+  .benefit-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.86rem; color: var(--text-body);
+  }
+  .benefit-item .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    flex-shrink: 0; margin-top: 6px;
+  }
+  .benefit-item .dot.green { background: var(--green-main); }
+  .benefit-item .dot.orange { background: var(--solar-mid); }
+
+  /* ===== SDG SECTION ===== */
+  #sdg { background: var(--gray-50); }
+  .sdg-intro {
+    background: var(--white); border: 1px solid var(--green-pale);
+    border-radius: var(--radius-lg); padding: 28px 32px;
+    margin-bottom: 48px; font-size: 0.95rem; color: var(--text-body);
+    border-left: 4px solid var(--green-main);
+  }
+  .sdg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .sdg-card {
+    background: var(--white); border: 1px solid var(--gray-200);
+    border-radius: var(--radius); padding: 24px 18px;
+    text-align: center; transition: all var(--transition);
+    position: relative; overflow: hidden;
+  }
+  .sdg-card::after {
+    content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  }
+  .sdg-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+  .sdg-icon { font-size: 2.4rem; margin-bottom: 12px; }
+  .sdg-num {
+    display: inline-block; padding: 4px 10px; border-radius: 99px;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .sdg-card h3 { font-size: 0.88rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+  .sdg-card p { font-size: 0.78rem; color: var(--gray-600); line-height: 1.6; }
+
+  .sdg-7  .sdg-num { background: #FFF9C4; color: #F57F17; }
+  .sdg-9  .sdg-num { background: #FCE4EC; color: #C62828; }
+  .sdg-11 .sdg-num { background: #FFF3E0; color: #E65100; }
+  .sdg-12 .sdg-num { background: #F3E5F5; color: #6A1B9A; }
+  .sdg-13 .sdg-num { background: #E8F5E9; color: #1B5E20; }
+  .sdg-14 .sdg-num { background: #E3F2FD; color: #0D47A1; }
+  .sdg-15 .sdg-num { background: #E8F5E9; color: #2E7D32; }
+  .sdg-17 .sdg-num { background: #EDE7F6; color: #4527A0; }
+  .sdg-7::after  { background: #F9A825; }
+  .sdg-9::after  { background: #E53935; }
+  .sdg-11::after { background: #FB8C00; }
+  .sdg-12::after { background: #8E24AA; }
+  .sdg-13::after { background: #43A047; }
+  .sdg-14::after { background: #1E88E5; }
+  .sdg-15::after { background: #2E7D32; }
+  .sdg-17::after { background: #5E35B1; }
+
+  /* ===== TEAM SECTION ===== */
+  #team { background: var(--white); }
+  .team-intro {
+    font-size: 0.95rem; color: var(--text-body);
+    background: linear-gradient(135deg, var(--green-bg), var(--solar-pale));
+    border: 1px solid var(--green-pale); border-radius: var(--radius-lg);
+    padding: 24px 32px; margin-bottom: 48px;
+  }
+  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+  .team-card {
+    background: var(--white); border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg); padding: 32px;
+    box-shadow: var(--shadow-sm); transition: all var(--transition);
+  }
+  .team-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: var(--green-pale); }
+  .team-avatar {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--green-light), var(--solar-main));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; margin-bottom: 18px;
+    box-shadow: 0 4px 14px rgba(76,175,80,0.3);
+  }
+  .team-role {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--green-main); margin-bottom: 6px;
+  }
+  .team-card h3 { font-size: 1.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px; }
+  .team-card p { font-size: 0.88rem; color: var(--text-body); line-height: 1.7; }
+
+  .incubation-box {
+    background: linear-gradient(135deg, var(--text-main), #2D5A2D);
+    color: var(--white); border-radius: var(--radius-lg);
+    padding: 36px 40px; display: flex; align-items: center; gap: 32px;
+  }
+  .iit-badge {
+    flex-shrink: 0; width: 80px; height: 80px; border-radius: 50%;
+    background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.2rem;
+  }
+  .incubation-text {}
+  .incubation-text .tag {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; opacity: 0.7; margin-bottom: 6px;
+  }
+  .incubation-text h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+  .incubation-text p { font-size: 0.87rem; opacity: 0.82; line-height: 1.65; }
+
+  /* ===== CONTACT SECTION ===== */
+  #contact { background: var(--green-bg); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .contact-info { display: flex; flex-direction: column; gap: 20px; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    background: var(--white); border: 1px solid var(--green-pale);
+    border-radius: var(--radius); padding: 20px;
+    box-shadow: var(--shadow-sm); transition: all var(--transition);
+  }
+  .contact-item:hover { box-shadow: var(--shadow-md); transform: translateX(4px); }
+  .contact-item-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--green-pale); display: flex; align-items: center;
+    justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+  }
+  .contact-item-text {}
+  .contact-item-text .label { font-size: 0.72rem; font-weight: 600; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
+  .contact-item-text .value { font-size: 0.92rem; color: var(--text-main); font-weight: 500; }
+  .contact-item-text .value a { color: var(--green-main); }
+  .contact-item-text .value a:hover { color: var(--green-dark); }
+
+  .contact-form-card {
+    background: var(--white); border: 1px solid var(--green-pale);
+    border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-md);
+  }
+  .contact-form-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 24px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-body); margin-bottom: 7px; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 12px 14px; border: 1.5px solid var(--gray-300);
+    border-radius: 8px; font-size: 0.9rem; color: var(--text-main);
+    background: var(--white); transition: all var(--transition);
+    font-family: inherit;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    outline: none; border-color: var(--green-main);
+    box-shadow: 0 0 0 3px rgba(76,175,80,0.12);
+  }
+  .form-group textarea { height: 110px; resize: vertical; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .btn-submit {
+    width: 100%; background: linear-gradient(135deg, var(--green-main), var(--green-light));
+    color: var(--white); padding: 14px; border-radius: 10px;
+    font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer;
+    transition: all var(--transition); box-shadow: 0 4px 16px rgba(76,175,80,0.35);
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(76,175,80,0.45); }
+  .form-success {
+    display: none; text-align: center; padding: 24px;
+    background: var(--green-bg); border-radius: var(--radius);
+    border: 1px solid var(--green-pale); margin-top: 14px;
+    font-size: 0.9rem; color: var(--green-dark); font-weight: 500;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--text-main); color: rgba(255,255,255,0.85);
+    padding: 48px 0 24px;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand {}
+  .footer-brand-name {
+    font-size: 1.1rem; font-weight: 700; color: var(--white);
+    margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
+  }
+  .footer-brand-name span { font-size: 1.5rem; }
+  .footer-brand p { font-size: 0.84rem; line-height: 1.7; opacity: 0.75; max-width: 300px; }
+  .footer-section h4 { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--white); margin-bottom: 16px; }
+  .footer-section ul { display: flex; flex-direction: column; gap: 8px; }
+  .footer-section ul li a {
+    font-size: 0.85rem; color: rgba(255,255,255,0.65);
+    transition: color var(--transition);
+  }
+  .footer-section ul li a:hover { color: var(--green-pale); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 24px; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-bottom p { font-size: 0.8rem; opacity: 0.5; }
+  .footer-iit {
+    font-size: 0.75rem; opacity: 0.5;
+    background: rgba(255,255,255,0.06); padding: 6px 12px; border-radius: 99px;
+  }
+
+  /* ===== SCROLL ANIMATIONS ===== */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ===== BACK TO TOP ===== */
+  #back-top {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--green-main); color: var(--white);
+    border: none; cursor: pointer; font-size: 1.1rem;
+    box-shadow: 0 4px 16px rgba(76,175,80,0.4);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: all var(--transition);
+    transform: translateY(8px);
+  }
+  #back-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  #back-top:hover { background: var(--green-dark); transform: translateY(-3px); }
+
+  /* ===== COUNTER ANIMATION ===== */
+  .count-up { display: inline-block; }
+
+  /* ===== MOBILE NAV ===== */
+  .mobile-menu {
+    display: none; position: fixed; top: 70px; left: 0; right: 0;
+    background: var(--white); border-bottom: 1px solid var(--green-pale);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 999;
+    padding: 12px 24px 20px;
+    flex-direction: column; gap: 4px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a, .mobile-menu button {
+    padding: 11px 14px; border-radius: 8px; font-size: 0.9rem;
+    font-weight: 500; color: var(--text-body);
+    background: none; border: none; text-align: left; cursor: pointer;
+    transition: all var(--transition); display: block;
+  }
+  .mobile-menu a:hover, .mobile-menu button:hover { background: var(--green-bg); color: var(--green-dark); }
+  .mobile-menu .sub-link { padding-left: 28px; font-size: 0.85rem; }
+
+  /* ===== INFOGRAPHICS SECTION ===== */
+  #infographics { background: var(--solar-pale); }
+  .infographic-flow {
+    background: var(--white); border: 1px solid var(--green-pale);
+    border-radius: var(--radius-lg); padding: 40px;
+    box-shadow: var(--shadow-sm);
+  }
+  .infographic-flow h3 {
+    font-size: 1rem; font-weight: 700; text-align: center;
+    color: var(--text-main); margin-bottom: 36px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .inf-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0; flex-wrap: wrap;
+  }
+  .inf-node {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; padding: 18px 16px; min-width: 110px;
+    background: var(--green-bg); border: 1.5px solid var(--green-pale);
+    border-radius: var(--radius); position: relative;
+    transition: all var(--transition);
+  }
+  .inf-node:hover { background: var(--green-pale); transform: scale(1.04); box-shadow: var(--shadow-sm); }
+  .inf-node .inf-icon { font-size: 1.8rem; margin-bottom: 8px; }
+  .inf-node .inf-label { font-size: 0.75rem; font-weight: 600; color: var(--green-dark); }
+  .inf-arrow { color: var(--green-main); font-size: 1.3rem; padding: 0 8px; flex-shrink: 0; }
+  .inf-output-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px;
+  }
+  .inf-output {
+    background: linear-gradient(135deg, var(--green-bg), var(--white));
+    border: 1.5px solid var(--green-pale); border-radius: var(--radius);
+    padding: 20px; text-align: center; transition: all var(--transition);
+  }
+  .inf-output:hover { box-shadow: var(--shadow-sm); transform: translateY(-3px); }
+  .inf-output .out-icon { font-size: 2rem; margin-bottom: 10px; }
+  .inf-output h4 { font-size: 0.9rem; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; }
+  .inf-output p { font-size: 0.78rem; color: var(--gray-600); }
+  .inf-divider { text-align: center; padding: 20px 0; color: var(--green-main); font-size: 1.5rem; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .hero-content { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { display: none; }
+    .present-grid { grid-template-columns: 1fr; }
+    .present-card.featured { grid-column: 1; }
+    .projection-box { grid-column: 1; }
+    .proj-numbers { grid-template-columns: repeat(2, 1fr); }
+    .sdg-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    section { padding: 64px 0; }
+    .bg-intro-grid { grid-template-columns: 1fr; gap: 32px; }
+    .team-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .incubation-box { flex-direction: column; gap: 20px; text-align: center; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .inf-output-row { grid-template-columns: 1fr; }
+    .process-benefits { grid-template-columns: 1fr; }
+    .solar-advantages { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .mission-banner { padding: 28px 24px; }
+    .mission-banner::before { display: none; }
+  }
+  @media (max-width: 480px) {
+    .hero-h1 { font-size: 1.8rem; }
+    .hero-stats { grid-template-columns: 1fr; }
+    .sdg-grid { grid-template-columns: 1fr 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .waste-stats-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">
+      <div class="nav-logo">🌿</div>
+      <div class="nav-brand-text">
+        <span>Green Innovotech Solutions</span>
+        <span>PVT. LTD. · Ludhiana</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#background" class="nav-link">Background</a></li>
+      <li><a href="#present" class="nav-link">Present</a></li>
+      <li class="dropdown">
+        <button>Process <span class="chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="#process">Process</a>
+          <a href="#infographics">Infographics</a>
+        </div>
+      </li>
+      <li><a href="#sdg" class="nav-link">SDG Goals</a></li>
+      <li><a href="#team" class="nav-link">Team</a></li>
+      <li><a href="#contact" class="nav-link">Contact Us</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#background" onclick="closeMobileMenu()">Background</a>
+  <a href="#present" onclick="closeMobileMenu()">Present</a>
+  <a href="#process" onclick="closeMobileMenu()">Process</a>
+  <a href="#infographics" class="sub-link" onclick="closeMobileMenu()">↳ Infographics</a>
+  <a href="#sdg" onclick="closeMobileMenu()">SDG Goals</a>
+  <a href="#team" onclick="closeMobileMenu()">Team</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact Us</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-sun"></div>
+  <div class="hero-leaf"></div>
+  <div class="hero-content container">
+    <div class="hero-text">
+      <div class="hero-badge">Solar-Powered Plastic Pyrolysis Plant</div>
+      <h1 class="hero-h1">
+        Turning Plastic Waste into<br>
+        <em>Clean Energy</em> &amp;<br>
+        <span>Saved Environment</span>
+      </h1>
+      <p class="hero-sub">
+        Green Innovotech Solutions Pvt. Ltd. is pioneering a solar-thermal waste plastic pyrolysis system — converting non-biodegradable plastic into fuel, electricity and a cleaner planet. Incubated at IIT Ropar TBIF.
+      </p>
+      <div class="hero-btns">
+        <a href="#present" class="btn-primary">Our Solution ↓</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-num"><span class="count-up" data-target="1100">0</span> TPD</div>
+          <div class="stat-label">Waste generated in Ludhiana daily</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">$<span class="count-up" data-target="39">0</span>T</div>
+          <div class="stat-label">Global market opportunity</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num"><span class="count-up" data-target="79">0</span>%</div>
+          <div class="stat-label">Plastic ends in landfills</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-diagram">
+        <div class="hero-diagram-title">Solar Pyrolysis System Flow</div>
+        <div class="pyrolysis-flow">
+          <div class="flow-step">
+            <div class="flow-step-icon">☀️</div>
+            <div class="flow-step-text">
+              <strong>Solar Concentrator</strong>
+              <span>Captures &amp; focuses solar irradiance</span>
+            </div>
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">
+            <div class="flow-step-icon">♨️</div>
+            <div class="flow-step-text">
+              <strong>Pyrolysis Reactor</strong>
+              <span>Thermal decomposition of plastic</span>
+            </div>
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">
+            <div class="flow-step-icon">⚗️</div>
+            <div class="flow-step-text">
+              <strong>Exo-Energy Capture</strong>
+              <span>Waste heat harvested for power</span>
+            </div>
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">
+            <div class="flow-step-icon">⚡</div>
+            <div class="flow-step-text">
+              <strong>Clean Energy Output</strong>
+              <span>Electricity + Paraffin fuel</span>
+            </div>
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step" style="background:var(--green-bg);border-color:var(--green-pale)">
+            <div class="flow-step-icon">🌍</div>
+            <div class="flow-step-text">
+              <strong>Zero Landfill</strong>
+              <span>Saved environment &amp; freed land</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BACKGROUND SECTION ===== -->
+<section id="background">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">The Problem</div>
+      <h2 class="section-title">We have been generating plastic waste <em>since 1951</em></h2>
+      <p class="section-sub">An urgent environmental crisis demands an innovative, sustainable solution.</p>
+    </div>
+
+    <div class="bg-intro-grid">
+      <div class="bg-intro-text reveal">
+        <h3 class="bg-intro-title">Ludhiana — <span>Mountains of Waste</span></h3>
+        <p style="font-size:0.92rem;color:var(--text-body);margin-bottom:16px;">
+          Around 11,00,000 kg — that's the quantity of garbage the city of Ludhiana produces in a single day, the highest among 13 Municipal Corporations in Punjab. Nearly 3,074 tonnes of waste is collected in Punjab every day.
+        </p>
+        <div class="highlight-box">
+          <p>Ludhiana Municipal Corporation has not processed a single kg of waste produced in the city for over a year. Legacy waste weighing over <strong>21 lakh Metric Tonnes</strong> lies dumped at the Jamalpur landfill on Tajpur road, spread across 50 acres.</p>
+        </div>
+        <div class="point-list">
+          <div class="point-item">
+            <div class="point-icon">⚠️</div>
+            <p>Legacy waste of 21 lakh MT + 1,100 TPD new waste causing irreversible environmental degradation of water, air and soil.</p>
+          </div>
+          <div class="point-item">
+            <div class="point-icon">💸</div>
+            <p>Punjab Pollution Control Board fined LMC ₹3.80 crore for failure to process legacy waste.</p>
+          </div>
+          <div class="point-item">
+            <div class="point-icon">🌍</div>
+            <p>If current trends continue, ~12,000 Mt of plastic waste will be in landfills or the environment by 2050.</p>
+          </div>
+        </div>
+        <p style="font-size:0.78rem;color:var(--gray-600);margin-top:16px;">Source: The Indian Express Investigation — <em>indianexpress.com/cities/ludhiana</em></p>
+      </div>
+
+      <div class="waste-visual reveal reveal-delay-2">
+        <div class="waste-stat-big">
+          <div class="num"><span class="count-up" data-target="8300">0</span> Mt</div>
+          <div class="unit">Virgin plastics ever manufactured</div>
+          <div class="desc">as of 2015 (global estimate)</div>
+        </div>
+        <div class="waste-stats-row">
+          <div class="waste-mini-stat red">
+            <div class="mini-num">79%</div>
+            <div class="mini-label">Accumulated in landfills / environment</div>
+          </div>
+          <div class="waste-mini-stat green">
+            <div class="mini-num">9%</div>
+            <div class="mini-label">Recycled globally</div>
+          </div>
+          <div class="waste-mini-stat red">
+            <div class="mini-num">21L MT</div>
+            <div class="mini-label">Legacy waste at Ludhiana landfill</div>
+          </div>
+          <div class="waste-mini-stat green">
+            <div class="mini-num">1951</div>
+            <div class="mini-label">Year plastic waste generation began</div>
+          </div>
+        </div>
+        <div class="highlight-box" style="margin:0">
+          <p><strong>The Punjab Pollution Control Board</strong> has slapped a fine of ₹3.80 crore on LMC for failure to process the legacy waste and causing environmental degradation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRESENT SECTION ===== -->
+<section id="present">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Our Innovation</div>
+      <h2 class="section-title">Solar Powered Plastic <em>Pyrolysis Plant</em></h2>
+    </div>
+
+    <div class="mission-banner reveal">
+      <h2>Our Mission</h2>
+      <p>To upcycle the entire plastic waste generated using Renewable Energy in a non-polluting, Eco-Sustainable way — assimilating plastic waste in an ecologically responsible manner every single day.</p>
+    </div>
+
+    <div class="present-grid">
+      <div class="present-card reveal">
+        <div class="card-icon">🧪</div>
+        <h3>The Problem with Plastics</h3>
+        <p>Plastics have outgrown most man-made materials and are under environmental scrutiny. By 2015, approximately 6,300 Mt of plastic waste had been generated. Around 9% was recycled, 12% incinerated, and 79% accumulated in landfills or the natural environment.</p>
+      </div>
+      <div class="present-card reveal reveal-delay-1">
+        <div class="card-icon">🔬</div>
+        <h3>What is Pyrolysis?</h3>
+        <p>A system where non-biodegradable or slow-degradable plastic is assimilated through pyrolysis — converting it into a form which is controllable, storable and reusable. The challenge was to develop a process that consumes no fossil fuel or electricity while being more efficient in terms of input-to-output energy ratio.</p>
+      </div>
+
+      <div class="present-card featured reveal">
+        <div class="card-icon">☀️</div>
+        <h3>Solar Plastic Pyrolysis — Our Approach</h3>
+        <p>Using Solar energy to initiate and propagate the reaction in the reactor for processing plastic garbage, capturing &amp; utilising exo-energy (normally wasted) via a Concave Reflector and heat capturing mechanism. This exo-energy can further be used to generate electricity sustainably.</p>
+        <div class="solar-advantages">
+          <div class="adv-item">India receives 4–7 kWh/m² of Solar Irradiance per day (MNRE)</div>
+          <div class="adv-item">Present PV solar panels produce 150–200 W/h at max 11% efficiency</div>
+          <div class="adv-item">India has 3,615 hours of sunlight per year — ~9.9 hrs/day (Punjab)</div>
+          <div class="adv-item">Potential to capture 39.6–69.3 kW/day/m² across the Indian sub-continent</div>
+          <div class="adv-item">Multiple stacked systems all using the sun's irradiance simultaneously</div>
+          <div class="adv-item">Zero fossil fuel. Zero electricity input. Self-sustaining energy loop.</div>
+        </div>
+      </div>
+
+      <div class="projection-box reveal">
+        <h3>📊 Market Projection</h3>
+        <p style="font-size:0.9rem;opacity:0.9;margin-bottom:8px;">India produces 34,69,782 TPA of plastic waste. Globally, 7.36 billion TPA accumulates — only 30% is recycled. We aim to increase assimilation to the maximum.</p>
+        <div class="proj-numbers">
+          <div class="proj-num-item">
+            <div class="big">$39T</div>
+            <div class="label">Global market potential</div>
+          </div>
+          <div class="proj-num-item">
+            <div class="big">$18.5B</div>
+            <div class="label">India market opportunity</div>
+          </div>
+          <div class="proj-num-item">
+            <div class="big">70%</div>
+            <div class="label">Plastic unrecycled globally</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS SECTION ===== -->
+<section id="process">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">How It Works</div>
+      <h2 class="section-title">The Waste Plastic <em>Recycling Process</em></h2>
+      <p class="section-sub">A systematic 7-step pathway from waste collection to clean energy generation and new products.</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">1</div>
+        <div class="step-icon">🚛</div>
+        <h3>Collection</h3>
+        <p>Plastic waste collected from curbside programs, drop-off centres, and waste collection companies from various urban sources.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num">2</div>
+        <div class="step-icon">🔄</div>
+        <h3>Sorting</h3>
+        <p>Sorted by type and colour — PET, HDPE, LDPE etc. Different plastics have different properties and must be processed separately.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num">3</div>
+        <div class="step-icon">⚙️</div>
+        <h3>Shredding</h3>
+        <p>Sorted plastic is shredded into small pieces — dramatically increasing surface area for efficient processing and recycling.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-num">4</div>
+        <div class="step-icon">💧</div>
+        <h3>Washing</h3>
+        <p>Shredded plastic is washed thoroughly to remove dirt and debris, ensuring the output material is clean and safe for use.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">5</div>
+        <div class="step-icon">🔥</div>
+        <h3>Solar Pyrolysis</h3>
+        <p>Solar concentrators heat the plastic in an oxygen-free reactor. Thermal decomposition converts it into gas, oil and char.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num">6</div>
+        <div class="step-icon">🛢️</div>
+        <h3>Product Extraction</h3>
+        <p>Paraffin (high calorific value fuel), synthetic gas and liquid fuel are extracted — valuable, storable and reusable outputs.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num">7</div>
+        <div class="step-icon">⚡</div>
+        <h3>Energy Generation</h3>
+        <p>Exo-energy from the reactor is captured and converted to electricity. Sustainable, reusable, with very long shelf life.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3" style="background:var(--green-bg);border-color:var(--green-pale);">
+        <div class="step-num" style="background:var(--green-main);color:white;">✓</div>
+        <div class="step-icon">🌿</div>
+        <h3>Zero Landfill</h3>
+        <p>End result: freed landmass, no landfill burden, saved environment and a circular economy that pays for itself.</p>
+      </div>
+    </div>
+
+    <div class="process-benefits">
+      <div class="benefit-group reveal">
+        <h3>✅ Benefits</h3>
+        <div class="benefit-list">
+          <div class="benefit-item"><div class="dot green"></div>Reduces plastic waste going to landfills — cutting methane emissions</div>
+          <div class="benefit-item"><div class="dot green"></div>Conserves natural resources — no new petroleum extraction required</div>
+          <div class="benefit-item"><div class="dot green"></div>Reduces ocean and river pollution — protects marine ecosystems</div>
+          <div class="benefit-item"><div class="dot green"></div>Generates clean electricity as a by-product of the process</div>
+          <div class="benefit-item"><div class="dot green"></div>Creates employment in the recycling and clean-energy sector</div>
+          <div class="benefit-item"><div class="dot green"></div>Frees up urban land currently buried under legacy waste mountains</div>
+        </div>
+      </div>
+      <div class="benefit-group reveal reveal-delay-2">
+        <h3>⚠️ Challenges Addressed</h3>
+        <div class="benefit-list">
+          <div class="benefit-item"><div class="dot orange"></div>Difficulty collecting all plastic waste — solved by modular local plants</div>
+          <div class="benefit-item"><div class="dot orange"></div>Sorting complexity — addressed through pre-processing sorting line</div>
+          <div class="benefit-item"><div class="dot orange"></div>Not all plastics recyclable conventionally — pyrolysis handles mixed waste</div>
+          <div class="benefit-item"><div class="dot orange"></div>High energy cost of conventional pyrolysis — eliminated by solar input</div>
+          <div class="benefit-item"><div class="dot orange"></div>Public awareness — addressed through partnerships and demonstration plants</div>
+          <div class="benefit-item"><div class="dot orange"></div>Fossil fuel dependency — completely removed by solar-thermal design</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INFOGRAPHICS SECTION ===== -->
+<section id="infographics">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Visual Overview</div>
+      <h2 class="section-title">System <em>Infographics</em></h2>
+      <p class="section-sub">A visual map of how solar energy drives the entire plastic-to-fuel pipeline.</p>
+    </div>
+
+    <div class="infographic-flow reveal">
+      <h3>Solar Powered Plastic Pyrolysis — System Flow</h3>
+
+      <div class="inf-row">
+        <div class="inf-node">
+          <div class="inf-icon">♻️</div>
+          <div class="inf-label">Plastic Waste Input</div>
+        </div>
+        <div class="inf-arrow">→</div>
+        <div class="inf-node">
+          <div class="inf-icon">🔄</div>
+          <div class="inf-label">Sort &amp; Shred</div>
+        </div>
+        <div class="inf-arrow">→</div>
+        <div class="inf-node" style="background:var(--solar-pale);border-color:var(--solar-light)">
+          <div class="inf-icon">☀️</div>
+          <div class="inf-label">Solar Concentrator</div>
+        </div>
+        <div class="inf-arrow">→</div>
+        <div class="inf-node">
+          <div class="inf-icon">🔥</div>
+          <div class="inf-label">Pyrolysis Reactor</div>
+        </div>
+        <div class="inf-arrow">→</div>
+        <div class="inf-node" style="background:var(--solar-pale);border-color:var(--solar-light)">
+          <div class="inf-icon">⚗️</div>
+          <div class="inf-label">Exo-Energy Capture</div>
+        </div>
+      </div>
+
+      <div class="inf-divider">↓</div>
+
+      <div class="inf-output-row">
+        <div class="inf-output">
+          <div class="out-icon">🛢️</div>
+          <h4>Paraffin Fuel</h4>
+          <p>High calorific value liquid fuel — controllable, storable and reusable substitute for conventional fuels</p>
+        </div>
+        <div class="inf-output">
+          <div class="out-icon">⚡</div>
+          <h4>Electricity</h4>
+          <p>Clean power generated from captured exo-energy — sustainable with a very long shelf life and zero emissions</p>
+        </div>
+        <div class="inf-output">
+          <div class="out-icon">🌿</div>
+          <h4>Zero Landfill</h4>
+          <p>Freed land, no legacy waste accumulation, restored ecosystems and clean urban environments for all</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solar irradiance data visual -->
+    <div style="margin-top:40px;background:var(--white);border:1px solid var(--green-pale);border-radius:var(--radius-lg);padding:36px;" class="reveal">
+      <h3 style="font-size:1rem;font-weight:700;color:var(--text-main);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px;text-align:center;">India's Solar Irradiance Potential</h3>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;">
+        <div style="background:var(--solar-pale);border:1px solid var(--solar-light);border-radius:var(--radius);padding:20px;">
+          <div style="font-size:1.6rem;font-weight:900;color:var(--solar-dark);">4–7</div>
+          <div style="font-size:0.75rem;color:var(--text-body);margin-top:4px;">kWh/m²/day Solar Irradiance</div>
+        </div>
+        <div style="background:var(--solar-pale);border:1px solid var(--solar-light);border-radius:var(--radius);padding:20px;">
+          <div style="font-size:1.6rem;font-weight:900;color:var(--solar-dark);">3,615</div>
+          <div style="font-size:0.75rem;color:var(--text-body);margin-top:4px;">Hours of Sunlight/Year (Punjab)</div>
+        </div>
+        <div style="background:var(--green-bg);border:1px solid var(--green-pale);border-radius:var(--radius);padding:20px;">
+          <div style="font-size:1.6rem;font-weight:900;color:var(--green-dark);">~9.9</div>
+          <div style="font-size:0.75rem;color:var(--text-body);margin-top:4px;">Hours of Sunlight Per Day</div>
+        </div>
+        <div style="background:var(--green-bg);border:1px solid var(--green-pale);border-radius:var(--radius);padding:20px;">
+          <div style="font-size:1.6rem;font-weight:900;color:var(--green-dark);">39.6–69.3</div>
+          <div style="font-size:0.75rem;color:var(--text-body);margin-top:4px;">kW/day/m² Capture Potential</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SDG SECTION ===== -->
+<section id="sdg">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">UN Goals</div>
+      <h2 class="section-title">Sustainable Development <em>Goals We Target</em></h2>
+    </div>
+
+    <div class="sdg-intro reveal">
+      The initiative of <strong>"Solar thermal powered waste plastic pyrolysis"</strong> contributes to several Sustainable Development Goals (SDGs) outlined by the United Nations — addressing critical environmental, social, and economic challenges through innovative, technology-driven solutions.
+    </div>
+
+    <div class="sdg-grid">
+      <div class="sdg-card sdg-7 reveal">
+        <div class="sdg-icon">⚡</div>
+        <div class="sdg-num">SDG 7</div>
+        <h3>Affordable &amp; Clean Energy</h3>
+        <p>Utilizing solar thermal energy promotes renewable energy sources, contributing to clean and sustainable energy solutions.</p>
+      </div>
+      <div class="sdg-card sdg-9 reveal reveal-delay-1">
+        <div class="sdg-icon">🏭</div>
+        <div class="sdg-num">SDG 9</div>
+        <h3>Industry, Innovation &amp; Infrastructure</h3>
+        <p>Combining solar thermal technology with pyrolysis represents an innovative approach advancing sustainable infrastructure.</p>
+      </div>
+      <div class="sdg-card sdg-11 reveal reveal-delay-2">
+        <div class="sdg-icon">🏙️</div>
+        <div class="sdg-num">SDG 11</div>
+        <h3>Sustainable Cities &amp; Communities</h3>
+        <p>Efficient plastic waste management creates cleaner urban environments and promotes sustainable waste management practices.</p>
+      </div>
+      <div class="sdg-card sdg-12 reveal reveal-delay-3">
+        <div class="sdg-icon">♻️</div>
+        <div class="sdg-num">SDG 12</div>
+        <h3>Responsible Consumption &amp; Production</h3>
+        <p>Converting waste plastic into valuable products supports responsible consumption and reduces demand for virgin plastic.</p>
+      </div>
+      <div class="sdg-card sdg-13 reveal">
+        <div class="sdg-icon">🌡️</div>
+        <div class="sdg-num">SDG 13</div>
+        <h3>Climate Action</h3>
+        <p>Reduces greenhouse gas emissions from traditional plastic disposal. Solar energy further mitigates the carbon footprint.</p>
+      </div>
+      <div class="sdg-card sdg-14 reveal reveal-delay-1">
+        <div class="sdg-icon">🌊</div>
+        <div class="sdg-num">SDG 14</div>
+        <h3>Life Below Water</h3>
+        <p>Preventing plastic from entering water bodies protects marine life and supports conservation of ocean ecosystems.</p>
+      </div>
+      <div class="sdg-card sdg-15 reveal reveal-delay-2">
+        <div class="sdg-icon">🌳</div>
+        <div class="sdg-num">SDG 15</div>
+        <h3>Life on Land</h3>
+        <p>Effective waste management preserves terrestrial ecosystems and reduces land pollution from improper plastic disposal.</p>
+      </div>
+      <div class="sdg-card sdg-17 reveal reveal-delay-3">
+        <div class="sdg-icon">🤝</div>
+        <div class="sdg-num">SDG 17</div>
+        <h3>Partnerships for the Goals</h3>
+        <p>Public-private partnerships, research institutions, and communities are crucial for knowledge-sharing and sustainable implementation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAM SECTION ===== -->
+<section id="team">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Our People</div>
+      <h2 class="section-title">The <em>Team</em> Behind the Vision</h2>
+    </div>
+
+    <div class="team-intro reveal">
+      We are working towards Sustainability in the fields of Waste Management and Green Energy through <strong>Green Innovotech Solutions Pvt. Ltd.</strong> at Ludhiana — an industrial town of Punjab, known for Hero Cycles, Oswal &amp; Vardhman Groups, Avon Cycles, and recognised as the <em>Manchester of India</em>.
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">🧑‍💼</div>
+        <div class="team-role">Co-Founder</div>
+        <h3>Kuldeep Singh</h3>
+        <p>A seasoned small business entrepreneur with over 20 years of sales and management experience, presently running a Two-wheelers Auto Parts Trading and Manufacturing Micro-enterprise in Ludhiana, Punjab.</p>
+        <p style="margin-top:12px;font-size:0.83rem;color:var(--gray-600);">📞 +91 9815 00 2787</p>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-avatar">🧑‍🔧</div>
+        <div class="team-role">Co-Founder</div>
+        <h3>Harjit Singh</h3>
+        <p>An innovator and veteran in the Sales &amp; Service industry with a history in Liaising and Banking. Presently running a workshop and distribution of EV Two-wheelers in the state of Punjab.</p>
+        <p style="margin-top:12px;font-size:0.83rem;color:var(--gray-600);">📞 +91 9815 23 3181</p>
+      </div>
+    </div>
+
+    <div class="incubation-box reveal">
+      <div class="iit-badge">🎓</div>
+      <div class="incubation-text">
+        <div class="tag">Incubated at</div>
+        <h3>IIT Ropar Technology Business Incubator Foundation (TBIF)</h3>
+        <p>Top Floor (East Wing), M. Visvesvaraya Block, Indian Institute of Technology Ropar, Birla Farms, Rupnagar – 140001, Punjab, India. Office 305 of IIT TBIF.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Contact <em>Us</em></h2>
+      <p class="section-sub">Reach out to learn more about the project, partnerships, or investment opportunities.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-item-icon">📧</div>
+          <div class="contact-item-text">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:Green.Innovotech.Solutions@gmail.com">Green.Innovotech.Solutions@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <div class="label">Phone — Kuldeep Singh</div>
+            <div class="value"><a href="tel:+919815002787">+91 9815 00 2787</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📱</div>
+          <div class="contact-item-text">
+            <div class="label">Phone — Harjit Singh</div>
+            <div class="value"><a href="tel:+919815233181">+91 9815 23 3181</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <div class="label">Office Address</div>
+            <div class="value">Green Innovotech Solutions Pvt. Ltd.,<br>305 of IIT TBIF, Top Floor, M Visvesvaraya Block,<br>IIT Ropar, Rupnagar PB 140001 IN</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-card reveal reveal-delay-2">
+        <h3>✉️ Send a Message</h3>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" placeholder="Your last name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject">
+              <option value="">Select a topic...</option>
+              <option>Investment Inquiry</option>
+              <option>Partnership / Collaboration</option>
+              <option>Technical Information</option>
+              <option>Media &amp; Press</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell us about your interest or query..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message →</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          ✅ Thank you! Your message has been received. We'll get back to you at <strong>Green.Innovotech.Solutions@gmail.com</strong> shortly.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name"><span>🌿</span> Green Innovotech Solutions Pvt. Ltd.</div>
+        <p>Pioneering solar-powered waste plastic pyrolysis technology — turning an environmental crisis into clean energy. Incubated at IIT Ropar TBIF, Rupnagar, Punjab.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Site Map</h4>
+        <ul>
+          <li><a href="#background">Background</a></li>
+          <li><a href="#present">Present</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#infographics">Infographics</a></li>
+          <li><a href="#sdg">SDG Goals</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:Green.Innovotech.Solutions@gmail.com">📧 Email Us</a></li>
+          <li><a href="tel:+919815002787">📞 Kuldeep Singh</a></li>
+          <li><a href="tel:+919815233181">📱 Harjit Singh</a></li>
+          <li><a href="#team">📍 IIT Ropar, Rupnagar</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Green Innovotech Solutions Pvt. Ltd. All rights reserved.</p>
+      <div class="footer-iit">Incubated at IIT Ropar TBIF · Rupnagar, Punjab 140001</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  // ===== NAV SCROLL BEHAVIOR =====
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.style.boxShadow = '0 4px 24px rgba(46,125,50,0.14)';
+    } else {
+      navbar.style.boxShadow = '0 2px 16px rgba(46,125,50,0.08)';
+    }
+    // Back to top
+    const btn = document.getElementById('back-top');
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+    // Active nav links
+    updateActiveNav();
+  });
+
+  // ===== ACTIVE NAV =====
+  function updateActiveNav() {
+    const sections = ['background','present','process','infographics','sdg','team','contact'];
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 100) current = id;
+    });
+    document.querySelectorAll('.nav-link').forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  }
+
+  // ===== MOBILE MENU =====
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    const spans = navToggle.querySelectorAll('span');
+    if (mobileMenu.classList.contains('open')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+    } else {
+      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    navToggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }
+
+  // ===== SCROLL REVEAL =====
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // ===== COUNTER ANIMATION =====
+  function animateCount(el, target, duration = 1600) {
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) {
+        el.textContent = target.toLocaleString();
+        clearInterval(timer);
+      } else {
+        el.textContent = Math.floor(start).toLocaleString();
+      }
+    }, 16);
+  }
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const target = parseInt(e.target.getAttribute('data-target'));
+        animateCount(e.target, target);
+        counterObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.count-up').forEach(el => counterObs.observe(el));
+
+  // ===== CONTACT FORM =====
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = 'Sending...';
+    btn.style.opacity = '0.7';
+    setTimeout(() => {
+      e.target.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }, 1200);
+  }
+
+  // ===== SMOOTH ANCHOR SCROLL (offset for navbar) =====
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 78;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
